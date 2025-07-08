@@ -31,18 +31,18 @@ export class LoginComponent {
         appVersion: '',
         osVersion: ''
       };
-      console.log('Form Submitted', this.Form.value);
 
       // Error Handling 
       this.auth.login(payload).subscribe({
         next: (res) => {
-          console.log('Login success:', res);
-          this.router.navigate(['/dashboard']);
+          if (res.status === 1 && res.data) {
+            localStorage.setItem('sessionToken', res.data.sessionToken);
+            localStorage.setItem('firstName', res.data.firstName);
+            this.router.navigate(['/dashboard']);
+            console.log(res);
+          } else alert(res.message);
         },
-        error: (err) => {
-          console.error('Login failed:', err);
-          alert('Invalid credentials');
-        }
+        error: () => alert('Login failed')
       });
     }
   }

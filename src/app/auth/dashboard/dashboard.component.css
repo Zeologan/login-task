@@ -1,18 +1,14 @@
-nav{
+button{
+    margin-top: 20px;
     padding: 10px 12px;
-    float: right;
-    align-items: center;
+    background-color: #19908A;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    transition: .2s;
 }
-.profile{
-    display: flex;
-    gap: 3px;
-    align-items: center;
-    justify-content: center;
-}
-
-img{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1px solid #fff;
+button:hover{
+    background-color: #21b4ad;
+    cursor: pointer;
 }
